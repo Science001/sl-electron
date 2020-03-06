@@ -1,0 +1,10 @@
+<script>
+    const {ipcRenderer} = require('electron')
+    const notifyStatus = () => {
+        ipcRenderer.send('online-status-changed', navigator.onLine)
+    }
+    window.addEventListener('online', notifyStatus)
+    window.addEventListener('offline', notifyStatus)
+
+    notifyStatus()
+</script>

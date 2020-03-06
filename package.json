@@ -1,0 +1,31 @@
+{
+  "name": "sl-electron",
+  "version": "1.0.0",
+  "description": "Shopping List application using Electron. A tutorial into Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "sl.electron",
+    "mac": {
+      "category": "sl.electron.productivity.list"
+    }
+  },
+  "author": "grk",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.6",
+    "electron-reload": "^1.5.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}

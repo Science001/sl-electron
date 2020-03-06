@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shopping List</title>
+    <style>
+        #offlineIndicator {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            display: none;
+        }
+
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="offlineIndicator">
+        <h2>You're offline</h2>
+    </div>
+    <h1>Shopping List</h1>
+    <div id="list">
+        <!-- React -->
+    </div>
+    <script>
+        const electron = require('electron')
+        const React = require('react')
+        const ReactDOM = require('react-dom')
+        const { ipcRenderer } = electron
+        const offlineIndicator = document.querySelector('#offlineIndicator')
+
+        ipcRenderer.on('online:statuschanged', (event, isOnline) => {
+            console.log(`[mainWindow]: main said the status chaged to ${isOnline}`)
+            offlineIndicator.style.display = isOnline ? 'none' : 'block'
+            if (isOnline && document.hidden) {
+                let notif = new Notification('Connection Established', {
+                    body: 'Stable Internet Connection found. Data will be uploaded to server now.'
+                })
+            }
+        })
+        
+    </script>
+    <script src="../components/list.js"></script>
+</body>
+
+</html>
