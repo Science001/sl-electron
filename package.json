@@ -18,7 +18,7 @@
   "author": "grk",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^8.0.0",
+    "electron": "^13.6.6",
     "electron-builder": "^22.3.6",
     "electron-reload": "^1.5.0"
   },
